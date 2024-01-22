@@ -1,0 +1,30 @@
+# version: '3'
+
+# services:
+#   rabbitmq-message-broker:
+#     build: 
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: rabbitmq
+#     ports:
+#       - "5672:5672"
+#       - "15672:15672"
+#     networks:
+#       - messaging
+
+# networks: 
+#     messaging:
+#       driver: bridge
+
+version: "3"
+services:
+ rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - 'rabbitmq_data:/data'
+
+volumes:
+  rabbitmq_data:
